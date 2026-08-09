@@ -1,0 +1,360 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding-top: 90px;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc; /* Tom mais suave e limpo */
+    color: #334155;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- HEADER E MENU --- */
+header {
+    background-color: #0f3057;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(15, 48, 87, 0.15);
+}
+
+.menu {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 55px;
+    width: auto;  
+    border-radius: 6px; 
+    display: block;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    transition: all 0.4s ease;
+}
+
+.menu a {
+    color: #e7dec8;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #e7dec8;
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::after, 
+.menu a.active::after {
+    width: 100%;
+}
+
+/* --- RESPONSIVIDADE DO MENU (MOBILE) --- */
+.mobile-menu-icon {
+    display: none; 
+    cursor: pointer;
+    width: 28px;
+}
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: #e7dec8;
+    margin: 5px 0;
+    transition: 0.4s;
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .menu ul {
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 79px; 
+        left: 0;
+        background-color: #0f3057;
+        padding: 30px 0;
+        text-align: center;
+        gap: 20px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    .menu ul.active {
+        display: flex;
+    }
+}
+/* ==========================================================================
+   ESTILIZAÇÃO DA PÁGINA DE FORMULÁRIO (<main>)
+   ========================================================================== */
+
+/* Fundo com a logo sobreposta por camada leve */
+.main-formulario {
+    background: linear-gradient(rgba(248, 249, 250, 0.88), rgba(248, 249, 250, 0.88)), 
+                url('soleluvia/sole.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Card centralizado do formulário */
+.form-card {
+    width: 100%;
+    max-width: 720px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Cabeçalho do Card */
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-header h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #0d6efd;
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+}
+
+.form-header p {
+    color: #555555;
+    font-size: 0.95rem;
+}
+
+/* Container do Iframe */
+.iframe-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.iframe-container iframe {
+    width: 100%;
+    max-width: 640px;
+    border: none;
+}
+
+/* Área do WhatsApp */
+.whatsapp-footer {
+    margin-top: 25px;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #eeeeee;
+    padding-top: 20px;
+}
+
+.whatsapp-footer p {
+    font-size: 0.95rem;
+    color: #444444;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+/* Botão do WhatsApp */
+.btn-whatsapp-form {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #25d366;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 28px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 380px;
+}
+
+.btn-whatsapp-form:hover {
+    background-color: #1eb954;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp-form i {
+    font-size: 1.3rem;
+}
+
+/* Responsividade Celulares */
+@media (max-width: 480px) {
+    .main-formulario {
+        padding: 20px 10px;
+    }
+
+    .form-card {
+        padding: 18px 10px;
+    }
+
+    .form-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .btn-whatsapp-form {
+        font-size: 0.95rem;
+        padding: 12px 18px;
+    }
+}
+footer {
+    background-color: #0f3057;
+    color: #ffffff;
+    padding: 50px 0 25px 0;
+    margin-top: 80px; 
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    gap: 40px;
+}
+
+.footer-brand {
+    flex: 1.5;
+    min-width: 280px;
+}
+
+.footer-brand h3 {
+    font-family: Georgia, serif;
+    color: #e7dec8;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.footer-brand p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+.footer-contacts {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.footer-contacts h4 {
+    color: #e7dec8;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-link {
+    color: #f1f5f9;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: color 0.3s ease, transform 0.2s ease;
+    width: fit-content;
+}
+
+.footer-link i {
+    font-size: 1.2rem;
+    color: #e7dec8; 
+}
+
+.footer-link:hover {
+    color: #e7dec8;
+    transform: translateX(4px); 
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(231, 222, 200, 0.15); 
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+/* --- RESPONSIVIDADE (MOBILE) --- */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; 
+        gap: 25px;
+    }
+
+    .titulo-principal {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .titulo-principal h1 {
+        font-size: 2.5rem;
+    }
+
+    .logo-main {
+        height: 100px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-contacts {
+        align-items: center; 
+    }
+
+    .footer-link:hover {
+        transform: none; 
+    }
+}
